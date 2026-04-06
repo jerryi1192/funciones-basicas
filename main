@@ -1,1 +1,44 @@
+# main.py
+import Operaciones
 
+def ejecutar_calculadora():
+    print("--- Calculadora Básica ---")
+    
+    try:
+        # Solicitar datos al usuario
+        num1 = float(input("Introduce el primer número: "))
+        num2 = float(input("Introduce el segundo número: "))
+        
+        print("\nOperaciones disponibles:")
+        print("1. Suma")
+        print("2. Resta")
+        print("3. Multiplicación")
+        print("4. División")
+        
+        opcion = input("\nSelecciona una opción (1/2/3/4): ")
+
+        # Lógica de decisión
+        if opcion == '1':
+            resultado = Operaciones.sumar(num1, num2)
+            simbolo = "+"
+        elif opcion == '2':
+            resultado = Operaciones.restar(num1, num2)
+            simbolo = "-"
+        elif opcion == '3':
+            resultado = Operaciones.multiplicar(num1, num2)
+            simbolo = "*"
+        elif opcion == '4':
+            resultado = Operaciones.dividir(num1, num2)
+            simbolo = "/"
+        else:
+            print("Opción no válida.")
+            return
+
+        # Mostrar resultado
+        print(f"\nResultado: {num1} {simbolo} {num2} = {resultado}")
+
+    except ValueError:
+        print("Error: Por favor, introduce solo números válidos.")
+
+if __name__ == "__main__":
+    ejecutar_calculadora()
